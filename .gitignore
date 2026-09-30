@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Editors / OS
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
+
+# Model outputs (too large for Git)
+checkpoints/
+*.pt
+*.pth
+
+# Generated training data (regenerate with src/generate_chats.py)
+data/train.txt
