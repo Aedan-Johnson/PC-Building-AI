@@ -59,6 +59,8 @@ pytest
 | Path | What it is |
 |---|---|
 | `data/parts/` | Parts spreadsheets (one CSV per category) |
+| `data/raw/` | Original dataset CSVs |
+| `src/build_parts.py` | Builds `data/parts/` from `data/raw/` |
 | `data/train.txt` | Generated practice chats (not committed if large) |
 | `src/checker.py` | Compatibility rules |
 | `src/generate_chats.py` | Turns parts into practice chats |
@@ -76,7 +78,7 @@ pytest
 **PC parts data:** Oliver, D. (2021 to 2025). *pc-part-dataset* [Data set]. GitHub. https://github.com/docyx/pc-part-dataset (MIT License)
 
 - Files used from `data/csv/`: `cpu.csv`, `motherboard.csv`, `memory.csv`, `video-card.csv`, `case.csv`, `power-supply.csv`, `cpu-cooler.csv`, `internal-hard-drive.csv`
-- I use a small subset of these parts (not the full dataset) in `data/parts/`
+- The original files are in `data/raw/`. `src/build_parts.py` picks a small subset of popular, current parts and saves them in `data/parts/` (see [`data/README.md`](data/README.md))
 - Columns the checker needs that the dataset doesn't include (CPU socket, RAM type, GPU power, case clearances) are added by me from the manufacturers' official spec pages
 - Note: the dataset's author collected it from [PCPartPicker](https://pcpartpicker.com). Prices and specs are a snapshot and may be out of date.
 
