@@ -12,7 +12,7 @@ The AI does the talking. A rule based **checker** verifies every answer before a
 - [x] Repo structure, file outlines, and spreadsheet headers
 - [x] Parts loader (`src/parts.py`)
 - [ ] Parts spreadsheets filled in
-- [ ] Checker rules and tests
+- [ ] Checker rules
 - [ ] Chat generator and `train.txt`
 - [ ] Tokenizer, model, and training
 - [ ] Pipeline and terminal chat program
@@ -51,7 +51,6 @@ python -m venv .venv
 # Windows:        .venv\Scripts\activate
 # macOS / Linux:  source .venv/bin/activate
 pip install -r requirements.txt
-pytest
 ```
 
 ## Project layout
@@ -67,7 +66,7 @@ pytest
 | `src/train.py` | Training loop, saves loss chart |
 | `src/pipeline.py` | Connects model and checker |
 | `src/chat.py` | Terminal chat program |
-| `tests/` | Checker tests, security tests, 20 eval questions |
+| `tests/eval_questions.csv` | 20 eval questions |
 | `results/` | Loss charts, example chats, test results |
 | `data/project-plan.pdf` | Full project plan and timeline |
 
@@ -90,7 +89,7 @@ pytest
 6. Total price is within budget
 7. Every part the AI mentions exists in the spreadsheets
 
-Each rule gets one test with a build that should pass and one that should fail.
+Check each rule by hand with one build that should pass and one that should fail.
 
 ## Success criteria
 
@@ -103,7 +102,7 @@ Each rule gets one test with a build that should pass and one that should fail.
 
 | Date | Milestone |
 |---|---|
-| Oct 25 | Parts spreadsheets filled, checker done with tests |
+| Oct 25 | Parts spreadsheets filled, checker done |
 | Oct 30 | `train.txt` done |
 | Nov 1 | Annotated bibliography done |
 | Nov 6 | First trained AI with loss chart |
