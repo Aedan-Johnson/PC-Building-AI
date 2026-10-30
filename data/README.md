@@ -1,39 +1,23 @@
 # Parts Data
 
-## Where it comes from
-`data/raw/` holds the original CSVs from [docyx/pc-part-dataset](https://github.com/docyx/pc-part-dataset) (MIT License). They have thousands of parts and are missing some columns the checker needs.
+The files in `data/parts/` are the full CSVs from [docyx/pc-part-dataset](https://github.com/docyx/pc-part-dataset) (MIT License), unchanged. `src/parts.py` loads them.
 
-`src/build_parts.py` turns them into the small, clean spreadsheets in `data/parts/` that the checker and chat generator use:
+| Category | File | Columns |
+|---|---|---|
+| cpus | `cpu.csv` | name, price, core_count, core_clock, boost_clock, microarchitecture, tdp, graphics |
+| motherboards | `motherboard.csv` | name, price, socket, form_factor, max_memory, memory_slots, color |
+| ram | `memory.csv` | name, price, speed, modules, price_per_gb, color, first_word_latency, cas_latency |
+| gpus | `video-card.csv` | name, price, chipset, memory, core_clock, boost_clock, color, length |
+| cases | `case.csv` | name, price, type, color, psu, side_panel, external_volume, internal_35_bays |
+| psus | `power-supply.csv` | name, price, type, efficiency, wattage, modular, color |
+| coolers | `cpu-cooler.csv` | name, price, rpm, noise_level, color, size |
+| storage | `internal-hard-drive.csv` | name, price, capacity, price_per_gb, type, cache, form_factor, interface |
 
-```bash
-python -m src.build_parts
-```
-
-It keeps the most popular current generation parts with a price, and fills in:
-- **CPU socket** from the CPU generation (Zen 4/5 = AM5, Zen 3 = AM4, Alder/Raptor Lake = LGA1700, Arrow Lake = LGA1851)
-- **Motherboard RAM type** from the socket (Intel LGA1700 DDR4 boards have DDR4 or D4 in the name)
-- **RAM type, speed, and capacity** from the dataset's speed and modules columns
-- **GPU power** from NVIDIA, AMD, and Intel spec pages
-- **Case board sizes** from the case type
-
-**Filled in by hand:** `max_gpu_length_mm` in `cases.csv`, from each case maker's spec page. Running the script again clears it, so re-enter it or stop rerunning after it's filled in.
-
-## Files
-
-Prices in USD, whole dollars. Every `name` must be unique across all files (the checker uses names to confirm a part exists).
-
-| File | Columns |
-|---|---|
-| `cpus.csv` | name, brand, socket, cores, tdp_watts, has_igpu, price |
-| `motherboards.csv` | name, socket, ram_type, form_factor, price |
-| `ram.csv` | name, ram_type, capacity_gb, sticks, speed_mhz, price |
-| `gpus.csv` | name, brand, chipset, vram_gb, length_mm, tdp_watts, price |
-| `cases.csv` | name, type, supported_form_factors, max_gpu_length_mm, price |
-| `psus.csv` | name, watts, efficiency, price |
-| `storage.csv` | name, type, capacity_gb, price |
-
-**Allowed values**
-- `socket`: `AM5`, `AM4`, `LGA1700`, `LGA1851`
-- `ram_type`: `DDR4` or `DDR5`
-- `form_factor`: `ATX`, `Micro-ATX`, `Mini-ITX`
-- `supported_form_factors`: separated with `;` e.g. `ATX;Micro-ATX;Mini-ITX`
+## Things to know when using it
+- **Some parts have no price.** Skip them for budget builds.
+- **Names repeat** (for example, the same GPU model from different listings). Don't rely on names alone being unique.
+- **Columns the checker needs that aren't included:**
+  - CPU socket: work it out from `microarchitecture` (Zen 4/5 = AM5, Zen 3 = AM4, Alder/Raptor Lake = LGA1700, Arrow Lake = LGA1851)
+  - RAM type: `memory.csv` `speed` looks like `5,6000`, meaning DDR5 at 6000 MHz
+  - Motherboard RAM type: not included (AM5 and LGA1851 are DDR5, AM4 is DDR4, LGA1700 boards can be either)
+  - GPU power, case GPU clearance, cooler height and sockets: not included
