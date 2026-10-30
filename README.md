@@ -71,6 +71,15 @@ pytest
 | `results/` | Loss charts, example chats, test results |
 | `data/project-plan.pdf` | Full project plan and timeline |
 
+## Data sources
+
+**PC parts data:** Oliver, D. (2021 to 2025). *pc-part-dataset* [Data set]. GitHub. https://github.com/docyx/pc-part-dataset (MIT License)
+
+- Files used from `data/csv/`: `cpu.csv`, `motherboard.csv`, `memory.csv`, `video-card.csv`, `case.csv`, `power-supply.csv`, `cpu-cooler.csv`, `internal-hard-drive.csv`
+- I use a small subset of these parts (not the full dataset) in `data/parts/`
+- Columns the checker needs that the dataset doesn't include (CPU socket, RAM type, GPU power, case clearances) are added by me from the manufacturers' official spec pages
+- Note: the dataset's author collected it from [PCPartPicker](https://pcpartpicker.com). Prices and specs are a snapshot and may be out of date.
+
 ## Checker rules
 
 1. CPU socket matches the motherboard
