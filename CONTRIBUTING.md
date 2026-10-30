@@ -18,5 +18,4 @@ Then open a pull request on GitHub, check the diff and the template checklist, a
 ## Habits
 1. **Check in**, 15 to 30 minutes: what's done, what's stuck.
 2. **Stuck for over an hour?** Write down what's wrong in the process journal, then ask the teacher or check the resources in the plan.
-3. **Run `pytest` before opening a pull request.**
-4. **Save everything** (loss charts, example chats, test results) in `results/`. That's the presentation material.
+3. **Save everything** (loss charts, example chats, test results) in `results/`. That's the presentation material.
