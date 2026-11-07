@@ -16,5 +16,8 @@ checkpoints/
 *.pt
 *.pth
 
-# Generated training data (regenerate with src/generate_chats.py)
+# Generated training data (regenerate with: python pc_ai.py generate)
 data/train.txt
+
+# Local tool settings
+.claude/

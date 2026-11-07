@@ -1,0 +1,70 @@
+slot,name,price,basis
+cpu,AMD Ryzen 5 5500,79.00,Typical 2025 street price ~$75-85 (dataset $74.22)
+cpu,AMD Ryzen 5 5600,109.00,Typical mid-2025 street price ~$100-115
+cpu,AMD Ryzen 7 5700X,139.00,Typical mid-2025 street price ~$130-145
+cpu,AMD Ryzen 5 7600,179.00,Typical mid-2025 street price ~$170-190; Tom's Hardware lowest-ever $178
+cpu,AMD Ryzen 5 9600X,189.00,MSRP $279; sold ~$180-200 mid-2025 before later $156 deals (PCWorld/Tom's Hardware)
+cpu,AMD Ryzen 7 7700X,239.00,Typical mid-2025 street price ~$230-250
+cpu,AMD Ryzen 7 9700X,299.00,Typical mid-2025 street price ~$290-310 (lowest-ever $229 came later)
+cpu,AMD Ryzen 7 7800X3D,369.00,Newegg $369.99 June 2025; Amazon Prime Day low $341 (Tom's Hardware Jul 2025)
+cpu,AMD Ryzen 7 9800X3D,479.00,MSRP $479; typical mid-2025 price $449-479
+cpu,AMD Ryzen 9 9900X,379.00,Typical mid-2025 street price ~$360-400
+cpu,AMD Ryzen 9 9950X,549.00,Typical mid-2025 street price ~$530-560
+cpu,AMD Ryzen 9 9950X3D,699.00,MSRP $699 (launched Mar 2025)
+cpu,Intel Core i3-14100F,99.00,Typical mid-2025 street price ~$95-105
+cpu,Intel Core i5-12400F,109.00,Typical mid-2025 street price ~$105-115
+cpu,Intel Core i5-14400F,129.00,Typical mid-2025 street price ~$125-135
+cpu,Intel Core i5-14600K,219.00,Amazon low $208 Apr 2025 (PC Guide); typical ~$210-230 mid-2025
+cpu,Intel Core i7-14700K,319.00,Typical mid-2025 street price ~$300-330
+cpu,Intel Core Ultra 5 245K,259.00,Typical mid-2025 street price ~$250-270 (dataset $259.99)
+cpu,Intel Core Ultra 7 265K,279.00,Typical mid-2025 street price ~$270-290
+cpu,Intel Core Ultra 9 285K,579.00,Typical mid-2025 street price ~$550-590
+cooler,Thermalright Assassin X 120 Refined SE,18.90,Typical 2025 Amazon price ~$18-20
+cooler,ARCTIC Freezer 36,29.99,Typical 2025 price ~$30-35
+cooler,Thermalright Peerless Assassin 120 SE,34.90,Typical 2025 Amazon price ~$35
+cooler,Thermalright Phantom Spirit 120 SE,35.90,Typical 2025 Amazon price ~$36
+motherboard,MSI PRO B550M-P GEN3,89.99,Typical mid-2025 price ~$85-95 (AM4)
+motherboard,Gigabyte A620M S2H,94.99,Typical mid-2025 price ~$90-100 (AM5 budget)
+motherboard,MSI PRO B650-S WIFI,129.99,$130 during Prime Day 2025 (Tech4Gamers)
+motherboard,ASRock B650M Pro RS WiFi,139.99,Typical mid-2025 price ~$130-150
+motherboard,MSI B650 GAMING PLUS WIFI,159.99,Typical mid-2025 price ~$150-170
+motherboard,Gigabyte B850 EAGLE WIFI6E,179.99,Typical mid-2025 price ~$170-190
+motherboard,MSI PRO B760M-P DDR4,99.99,Typical mid-2025 price ~$95-110 (LGA1700 DDR4)
+motherboard,MSI PRO B760M-P,109.99,Typical mid-2025 price ~$105-125 (LGA1700 DDR5)
+motherboard,MSI B760 GAMING PLUS WIFI,149.99,Typical mid-2025 price ~$140-170
+motherboard,MSI MAG Z790 TOMAHAWK WIFI,199.99,Typical mid-2025 price ~$190-220
+motherboard,Gigabyte B860M D3HP,119.99,Typical mid-2025 price ~$115-130 (LGA1851)
+motherboard,ASRock B860 Pro RS,149.99,Typical mid-2025 price ~$140-155 (LGA1851)
+ram,TEAMGROUP T-Force Vulcan Z 16 GB (2x8GB) DDR4-3200,36.99,Typical mid-2025 price ~$35-40 for 16GB DDR4-3200
+ram,Corsair Vengeance LPX 32 GB (2x16GB) DDR4-3200,69.99,~$70 for 32GB DDR4-3200 before the shortage (Tom's Hardware)
+ram,Crucial Classic 16 GB (2x8GB) DDR5-5600,44.99,Typical mid-2025 price ~$40-50 for 16GB DDR5
+ram,Corsair Vengeance 32 GB (2x16GB) DDR5-6000,89.99,Mid-2025 32GB DDR5-6000 ~$80-115 (Tom's Hardware/dropreference)
+ram,Corsair Vengeance 64 GB (2x32GB) DDR5-5600,159.99,Typical mid-2025 price ~$150-170 for 64GB DDR5
+gpu,MSI VENTUS 2X OC GeForce RTX 3050 6GB,179.99,Typical 2025 price ~$170-180
+gpu,ASRock Challenger D Radeon RX 6600 8GB,209.99,Typical mid-2025 price ~$200-220
+gpu,Gigabyte WINDFORCE OC GeForce RTX 5050 8GB,249.99,MSRP $249 (launched Jul 2025)
+gpu,MSI SHADOW 2X OC GeForce RTX 5060 8GB,299.99,MSRP $299; RTX 50 cards at MSRP in the US by mid-2025 (TweakTown)
+gpu,ASRock Challenger OC Arc B580 12GB,259.99,MSRP $249; typical ~$250-270 in 2025
+gpu,Sapphire PULSE Radeon RX 9060 XT 16GB,369.99,MSRP $349 (launched Jun 2025); typical ~$350-380
+gpu,Gigabyte WINDFORCE OC GeForce RTX 5060 Ti 16GB,449.99,MSRP $429; typical ~$430-460 in 2025
+gpu,PNY OC GeForce RTX 5070 12GB,549.99,MSRP $549; at MSRP by mid-2025 (TweakTown)
+gpu,ASRock Challenger Radeon RX 9070 16GB,579.99,MSRP $549; typical ~$560-600 mid-2025
+gpu,Sapphire PULSE Radeon RX 9070 XT 16GB,659.99,MSRP $599; typical ~$630-700 mid-2025 ($599 by Nov 2025 per PCGamesN)
+gpu,PNY OC GeForce RTX 5070 Ti 16GB,769.99,MSRP $749; typical ~$750-800 mid-2025
+gpu,MSI VENTUS 3X OC GeForce RTX 5080 16GB,1049.99,MSRP $999; ~$1000 in late 2025 (Tom's Hardware)
+gpu,Gigabyte WINDFORCE OC GeForce RTX 5090 32GB,2499.99,MSRP $1999 but rarely in stock at MSRP; typical ~$2400-2700 mid-2025
+storage,Kingston NV3 500 GB,39.99,Typical mid-2025 price ~$35-40
+storage,Crucial P3 Plus 1 TB,59.99,Typical mid-2025 price ~$55-65 (~$80/TB mainstream NVMe June 2025)
+storage,Crucial P3 Plus 2 TB,109.99,Prime Day 2025 ~$0.05/GB (Tom's Hardware); typical ~$100-115
+psu,MSI MAG A650BN,59.99,Typical 2025 price ~$55-65 (650W Bronze)
+psu,Corsair RM750e (2025),99.99,Typical 2025 price ~$90-100 ($89.99 deal on Slickdeals 2025)
+psu,Corsair RM850e (2025),109.99,Typical 2025 price ~$100-120 ($94.99 deal Sep 2025 on Slickdeals)
+psu,Corsair RM1000e (2025),149.99,Typical 2025 price ~$140-160
+case,Cooler Master Q300L V2,49.99,Typical 2025 price ~$45-55 (Micro ATX)
+case,Phanteks XT PRO,69.99,Typical 2025 price ~$65-70
+case,Montech AIR 903 MAX,74.99,Typical 2025 price ~$70-80
+case,Montech XR,74.99,Typical 2025 price ~$70-80
+case,NZXT H5 Flow (2024),79.99,MSRP $94.99; often ~$80 in 2025
+case,Lian Li Lancool 207,84.99,MSRP $84.99
+case,Corsair 4000D Airflow,94.99,Typical 2025 price ~$90-105
+case,Fractal Design North,139.99,MSRP $139.99

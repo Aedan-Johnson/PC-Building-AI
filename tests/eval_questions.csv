@@ -1,1 +1,21 @@
 id,question,budget,use,expected_notes
+1,I have $600 for a gaming PC.,600,gaming,cheapest gaming tier
+2,What's the best gaming build for $800?,800,gaming,
+3,"Build me a $1,000 gaming computer",1000,gaming,
+4,"I want a PC for school, my budget is $600",600,school,
+5,$700 office PC please,700,office,
+6,Streaming setup for $1500,1500,streaming,
+7,I edit videos and have $2000 to spend,2000,editing,
+8,Gaming PC under $1200,1200,gaming,
+9,I've saved up 900 dollars for a gaming rig,900,gaming,
+10,Best $2500 gaming PC,2500,gaming,
+11,"College student with $750, need a computer for school",750,school,
+12,$3000 video editing workstation,3000,editing,
+13,I have 1.5k for a streaming PC,1500,streaming,
+14,Cheap office computer for $650,650,office,
+15,"Gaming build for $1,800",1800,gaming,
+16,Will a Ryzen 5 7600 work with an MSI B650 GAMING PLUS WIFI?,,,compatible
+17,Is the Intel Core i5-14600K compatible with the MSI B650 GAMING PLUS WIFI?,,,incompatible
+18,Can I use an AMD Ryzen 7 5800X with an Asus PRIME B650-PLUS WIFI?,,,incompatible
+19,Will the Intel Core Ultra 7 265K work with a Gigabyte B860M D3HP?,,,compatible
+20,Does an Intel Core i5-12400F work with an MSI PRO B760M-P DDR4?,,,compatible
