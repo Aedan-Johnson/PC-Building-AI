@@ -21,3 +21,11 @@ The files in `data/parts/` are the full CSVs from [docyx/pc-part-dataset](https:
   - RAM type: `memory.csv` `speed` looks like `5,6000`, meaning DDR5 at 6000 MHz
   - Motherboard RAM type: not included (AM5 and LGA1851 are DDR5, AM4 is DDR4, LGA1700 boards can be either)
   - GPU power, case GPU clearance, cooler height and sockets: not included
+
+## Price list (`price_overrides.csv`)
+
+The dataset's prices are one-day lowest listings, so some are wrong. For example, discontinued parts show inflated reseller prices: the Ryzen 7 5800X3D is listed at $704.86. `price_overrides.csv` replaces those with researched **typical US prices from mid-2025 (Jun-Aug 2025)** for about 75 well-known parts. The `basis` column says where each number comes from.
+
+- `slot`: cpu, cooler, motherboard, ram, gpu, storage, psu, case
+- `name`: must match the part's name in `pc_ai.py`. GPU names have the chipset and memory added (for example `PNY OC GeForce RTX 5070 12GB`), and RAM names have the kit and speed added (for example `Corsair Vengeance 32 GB (2x16GB) DDR5-6000`). A name that doesn't match prints a warning.
+- The builder only suggests parts listed in this file. Compatibility questions still work for every part in the dataset.

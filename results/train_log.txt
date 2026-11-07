@@ -1,0 +1,5 @@
+Device: mps | parameters: 10.9M | vocab: 78 | training chars: 1,914,421
+step     0 | train loss 4.4746 | val loss 4.4750 | 12s
+step   250 | train loss 1.4198 | val loss 1.4259 | 220s
+step   500 | train loss 0.5979 | val loss 0.5949 | 443s
+step   750 | train loss 0.3651 | val loss 0.3623 | 669s

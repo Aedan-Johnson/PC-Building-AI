@@ -1,0 +1,21 @@
+id,question,kind,source,total,budget,expected,passed,problems,ai_problems,answer
+1,I have $600 for a gaming PC.,build,checker,574.84,600,cheapest gaming tier,True,,,"Okay, $600 for gaming? Here's a solid parts list: I ran it through the checker and everything works together."
+2,What's the best gaming build for $800?,build,checker,767.84,800,,True,,,"Okay, $800 for gaming? Here's a solid parts list: I ran it through the checker and everything works together."
+3,"Build me a $1,000 gaming computer",build,checker,957.84,1000,,True,,,"Got you. Here's what I'd build for gaming with $1,000: Every part passed the compatibility checker."
+4,"I want a PC for school, my budget is $600",build,checker,574.84,600,,True,,,"For $600, I'd go with this school setup: All 7 checker rules passed."
+5,$700 office PC please,build,checker,594.84,700,,True,,,"This office build fits in $700: I ran it through the checker and everything works together. You'd have about $105 left over for a monitor, keyboard and mouse, or a future upgrade."
+6,Streaming setup for $1500,build,checker,1443.84,1500,,True,,,"Here's how I'd spend $1,500 on a streaming PC: I ran it through the checker and everything works together."
+7,I edit videos and have $2000 to spend,build,checker,1808.84,2000,,True,,,"For $2,000, I'd go with this editing setup: All 7 checker rules passed. You'd have about $191 left over for a monitor, keyboard and mouse, or a future upgrade."
+8,Gaming PC under $1200,build,checker,1187.84,1200,,True,,,"Okay, $1,200 for gaming? Here's a solid parts list: All 7 checker rules passed."
+9,I've saved up 900 dollars for a gaming rig,build,checker,877.84,900,,True,,,Got you. Here's what I'd build for gaming with $900: All 7 checker rules passed.
+10,Best $2500 gaming PC,build,checker,2403.84,2500,,True,,,"Okay, $2,500 for gaming? Here's a solid parts list: All 7 checker rules passed."
+11,"College student with $750, need a computer for school",build,checker,594.84,750,,True,,,"For $750, I'd go with this school setup: All 7 checker rules passed. You'd have about $155 left over for a monitor, keyboard and mouse, or a future upgrade."
+12,$3000 video editing workstation,build,checker,2323.84,3000,,True,,,"For $3,000, I'd go with this editing setup: I ran it through the checker and everything works together. You'd have about $676 left over for a monitor, keyboard and mouse, or a future upgrade."
+13,I have 1.5k for a streaming PC,build,checker,1443.84,1500,,True,,,"Here's a $1,500 streaming build: Every part passed the compatibility checker."
+14,Cheap office computer for $650,build,checker,574.84,650,,True,,,"Okay, $650 for office? Here's a solid parts list: Every part passed the compatibility checker."
+15,"Gaming build for $1,800",build,checker,1628.84,1800,,True,,,"Got you. Here's what I'd build for gaming with $1,800: Every part passed the compatibility checker. You'd have about $171 left over for a monitor, keyboard and mouse, or a future upgrade."
+16,Will a Ryzen 5 7600 work with an MSI B650 GAMING PLUS WIFI?,compat,checker,,,compatible,True,,,Yes. The AMD Ryzen 5 7600 and MSI B650 GAMING PLUS WIFI both use the AM5 socket.
+17,Is the Intel Core i5-14600K compatible with the MSI B650 GAMING PLUS WIFI?,compat,checker,,,incompatible,True,,,"Nope, those won't work together. The Intel Core i5-14600K uses the LGA1700 socket, but the MSI B650 GAMING PLUS WIFI is an AM5 board."
+18,Can I use an AMD Ryzen 7 5800X with an Asus PRIME B650-PLUS WIFI?,compat,checker,,,incompatible,True,,,"Nope, those won't work together. The AMD Ryzen 7 5800X uses the AM4 socket, but the Asus PRIME B650-PLUS WIFI is an AM5 board."
+19,Will the Intel Core Ultra 7 265K work with a Gigabyte B860M D3HP?,compat,checker,,,compatible,True,,,"Yep, those work together. The Intel Core Ultra 7 265K and Gigabyte B860M D3HP both use the LGA1851 socket."
+20,Does an Intel Core i5-12400F work with an MSI PRO B760M-P DDR4?,compat,checker,,,compatible,True,,,"Yep, those work together. The Intel Core i5-12400F and MSI PRO B760M-P DDR4 both use the LGA1700 socket."
