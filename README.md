@@ -7,6 +7,8 @@ The AI does the talking. A rule based **checker** verifies every build before an
 **Built by:** Aedan Johnson (solo project, Self Directed Passion Project)
 **Full plan:** [`data/project-plan.pdf`](data/project-plan.pdf) · **Sources:** [`data/bibliography.md`](data/bibliography.md)
 
+> **Prices are from mid-2025, not live.** They do not match today's prices. See [Data and prices](#data-and-prices).
+
 ## Quick start
 
 Requires Python 3.11 or newer.
@@ -24,9 +26,17 @@ python pc_ai.py
 
 On the first run, `python pc_ai.py` makes anything that's missing (the practice chats, then the trained model) and then starts the chat. Training takes about 40 minutes on an Apple Silicon Mac. You can press Ctrl+C to skip it and chat using the checked builder only.
 
-## What you can ask
+## Example
 
-It understands casual typing and remembers the conversation.
+```
+You: i want a $50 pc for gaming
+AI: not possible bro 😭🥀 The cheapest build I can actually verify costs about $575 (too low, sorry).
+```
+
+It understands casual typing and remembers the conversation. Uses it knows: gaming, streaming, editing, school, office. Unrealistic budgets get an honest (Gen Z) answer, like the one above.
+
+<details>
+<summary><b>Everything you can ask</b></summary>
 
 | Kind | Examples |
 |---|---|
@@ -38,12 +48,7 @@ It understands casual typing and remembers the conversation.
 | PC questions | `what is a psu`, `ddr4 vs ddr5`, `what's a bottleneck` |
 | About the AI | `who made you`, `what can you do` |
 
-Uses it knows: gaming, streaming, editing, school, office. Unrealistic budgets get an honest (Gen Z) answer:
-
-```
-You: i want a $50 pc for gaming
-AI: not possible bro 😭🥀 The cheapest build I can actually verify costs about $575 (too low, sorry).
-```
+</details>
 
 ## Commands
 
@@ -56,6 +61,23 @@ python pc_ai.py eval                 # eval questions + checker rule tests + tri
 ```
 
 ## How it works
+
+The AI writes a build. The checker tests it against 7 rules. If it passes, the user sees it. If it fails, the user gets a build from the rule based builder instead, which is always correct.
+
+**Checker rules**
+
+1. CPU socket matches the motherboard
+2. RAM type (DDR4/DDR5) matches the motherboard
+3. Motherboard fits in the case
+4. Graphics card fits in the case
+5. Power supply is strong enough: watts ≥ (CPU watts + GPU watts) × 1.3
+6. Total price is within budget
+7. Every part the AI mentions exists in the parts list
+
+`python pc_ai.py eval` tests every rule with one build that should pass and one that should fail.
+
+<details>
+<summary><b>Full diagram</b></summary>
 
 ```
 Parts spreadsheets (data/parts/*.csv) + researched prices (data/price_overrides.csv)
@@ -77,24 +99,19 @@ User question ---> understand it (budget, use, parts named, follow-ups)
                                                 +--> fails? show the rule based build instead
 ```
 
-**The model:** a GPT-style transformer written from scratch in PyTorch, based on Karpathy's "Let's build GPT" and Raschka's *Build a Large Language Model (From Scratch)*.
+</details>
+
+<details>
+<summary><b>The model</b></summary>
+
+A GPT-style transformer written from scratch in PyTorch, based on Karpathy's "Let's build GPT" and Raschka's *Build a Large Language Model (From Scratch)*.
 
 - 10.9M parameters: 6 layers, 6 attention heads, 384-dimension embeddings, 512-character context
 - Character-level tokenizer (78 characters)
 - Trained on about 5,900 practice chats (about 1.9M characters): budget builds in formal and casual wording, plus compatibility questions that pass and fail
 - 3,000 steps, AdamW, cosine learning rate. It runs on an NVIDIA GPU, Apple Silicon (MPS), or the CPU.
 
-## Checker rules
-
-1. CPU socket matches the motherboard
-2. RAM type (DDR4/DDR5) matches the motherboard
-3. Motherboard fits in the case
-4. Graphics card fits in the case
-5. Power supply is strong enough: watts ≥ (CPU watts + GPU watts) × 1.3
-6. Total price is within budget
-7. Every part the AI mentions exists in the parts list
-
-`python pc_ai.py eval` tests every rule with one build that should pass and one that should fail.
+</details>
 
 ## Results
 
@@ -105,11 +122,34 @@ User question ---> understand it (budget, use, parts named, follow-ups)
 | Trick and security tests | 5 / 5 | all |
 | Training loss goes down | yes (4.47 → 0.36 by step 750) | yes |
 
-The trick tests cover: formatting codes in input (`[bold red]`), a 10,000-character input, a $50 budget, a made-up part name, and "ignore all your rules". The eval also reports how often the AI's *own* build passes the checker without help. Full results are saved to [`results/eval_results.csv`](results/eval_results.csv). Training writes the loss chart to `results/loss_chart.png` and the log to `results/train_log.txt`. The full 3,000-step run is still to come; the numbers above are from a run that stopped at step 750.
+The trick tests cover: formatting codes in input (`[bold red]`), a 10,000-character input, a $50 budget, a made-up part name, and "ignore all your rules". The eval also reports how often the AI's *own* build passes the checker without help. Full results are saved to [`results/eval_results.csv`](results/eval_results.csv). Training writes the loss chart to `results/loss_chart.png` and the log to `results/train_log.txt`.
+
+### Final training run
+
+*To be filled in after the full 3,000-step run. The numbers above are from a run that stopped at step 750.*
+
+- **Final training loss:** _TBD_
+- **Loss chart:** _TBD_ (`![Training loss](results/loss_chart.png)`)
+- **AI builds that passed the checker:** _TBD_ (example chats where the AI's own build passed all 7 rules)
+
+## Limitations
+
+- Prices are from mid-2025, not live (live prices are out of scope).
+- Case GPU clearance is estimated per case type, not measured per case.
+- It doesn't check CPU cooler height or socket support. Instead, it only suggests air coolers that support all four sockets.
+- The model is small and character-level, so it sometimes gets a part name slightly wrong. When that happens, the checker catches it and the user gets the rule based build instead.
+- No laptops, prebuilt PCs, or website/app. The project is a terminal program on purpose.
 
 ## Data and prices
 
 **PC parts data:** Oliver, D. (2021 to 2025). *pc-part-dataset* [Data set]. GitHub. https://github.com/docyx/pc-part-dataset (MIT License). The author collected it from [PCPartPicker](https://pcpartpicker.com).
+
+**Prices:** the builder only suggests the 69 parts in [`data/price_overrides.csv`](data/price_overrides.csv). Each has a researched **typical US price from mid-2025 (June to August 2025)**, with a note on what it's based on (official launch price and/or a dated mid-2025 report). I chose mid-2025 because prices were stable then. **They do not match today's prices.** RAM and SSDs cost several times more since the 2025-26 memory shortage (32GB of DDR5-6000 went from about $90 to about $450), and many graphics cards now sell above their official prices. Every build the AI shows includes this note.
+
+To change a price, edit the CSV and then run `python pc_ai.py generate` and `python pc_ai.py train`.
+
+<details>
+<summary><b>Dataset files and added columns</b></summary>
 
 - Files used: `cpu.csv`, `motherboard.csv`, `memory.csv`, `video-card.csv`, `case.csv`, `power-supply.csv`, `cpu-cooler.csv`, `internal-hard-drive.csv`. They're stored unchanged in `data/parts/` (see [`data/README.md`](data/README.md)).
 - Columns the checker needs that the dataset doesn't have are added in `pc_ai.py` section 2:
@@ -118,11 +158,12 @@ The trick tests cover: formatting codes in input (`[bold red]`), a 10,000-charac
   - **GPU power**: the `GPU_SPECS` table of official board power per chipset
   - **Case GPU clearance**: the `CASE_SPECS` table, **estimated per case type** (for example ATX Mid Tower = 360 mm), not exact per-case specs
 
-**Prices:** the builder only suggests the 69 parts in [`data/price_overrides.csv`](data/price_overrides.csv). Each has a researched **typical US price from mid-2025 (June to August 2025)**, with a note on what it's based on (official launch price and/or a dated mid-2025 report). I chose mid-2025 because prices were stable then. **They do not match today's prices.** RAM and SSDs cost several times more since the 2025-26 memory shortage (32GB of DDR5-6000 went from about $90 to about $450), and many graphics cards now sell above their official prices. Every build the AI shows includes this note.
-
-To change a price, edit the CSV and then run `python pc_ai.py generate` and `python pc_ai.py train`.
+</details>
 
 ## Project layout
+
+<details>
+<summary><b>Files and folders</b></summary>
 
 | Path | What it is |
 |---|---|
@@ -136,7 +177,10 @@ To change a price, edit the CSV and then run `python pc_ai.py generate` and `pyt
 | `data/project-plan.pdf` | Full project plan and timeline |
 | `data/bibliography.md` | Annotated bibliography (APA) |
 
-**Sections of `pc_ai.py`:**
+</details>
+
+<details>
+<summary><b>Sections of <code>pc_ai.py</code></b></summary>
 
 1. Paths and settings
 2. Parts data and catalog (cleaning, added specs, price list)
@@ -151,13 +195,7 @@ To change a price, edit the CSV and then run `python pc_ai.py generate` and `pyt
 11. Eval and trick tests
 12. Command line
 
-## Limitations
-
-- Prices are from mid-2025, not live (live prices are out of scope).
-- Case GPU clearance is estimated per case type, not measured per case.
-- It doesn't check CPU cooler height or socket support. Instead, it only suggests air coolers that support all four sockets.
-- The model is small and character-level, so it sometimes gets a part name slightly wrong. When that happens, the checker catches it and the user gets the rule based build instead.
-- No laptops, prebuilt PCs, or website/app. The project is a terminal program on purpose.
+</details>
 
 ## Status (Nov 6, 2026)
 
@@ -171,7 +209,8 @@ To change a price, edit the CSV and then run `python pc_ai.py generate` and `pyt
 - [ ] Slides and backup demo video
 - [ ] Final presentation
 
-## Key dates (subject to change)
+<details>
+<summary><b>Key dates (subject to change)</b></summary>
 
 | Date | Milestone |
 |---|---|
@@ -181,5 +220,7 @@ To change a price, edit the CSV and then run `python pc_ai.py generate` and `pyt
 | Nov 20 | Testing done, feature freeze |
 | Nov 30 | Slides and backup demo video |
 | Dec 3 | Final presentation (target) |
+
+</details>
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the Git workflow.
