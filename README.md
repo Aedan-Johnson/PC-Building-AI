@@ -5,7 +5,7 @@ A small language model, built from scratch in Python, that helps people pick par
 The AI does the talking. A rule based **checker** verifies every build before anyone sees it, so a broken or over-budget build never reaches the user.
 
 **Built by:** Aedan Johnson (solo project, Self Directed Passion Project)
-**Full plan:** [`data/project-plan.pdf`](data/project-plan.pdf)
+**Full plan:** [`data/project-plan.pdf`](data/project-plan.pdf) · **Sources:** [`data/bibliography.md`](data/bibliography.md)
 
 ## Quick start
 
@@ -134,6 +134,7 @@ To change a price, edit the CSV and then run `python pc_ai.py generate` and `pyt
 | `tests/eval_questions.csv` | 20 eval questions (15 builds, 5 compatibility) |
 | `results/` | Loss chart, training log, eval results |
 | `data/project-plan.pdf` | Full project plan and timeline |
+| `data/bibliography.md` | Annotated bibliography (APA) |
 
 **Sections of `pc_ai.py`:**
 
@@ -166,7 +167,7 @@ To change a price, edit the CSV and then run `python pc_ai.py generate` and `pyt
 - [x] Tokenizer, model, and training
 - [x] Pipeline and terminal chat program (casual questions, follow-ups, part picks)
 - [x] Eval questions, checker rule tests, and security tests
-- [ ] Annotated bibliography
+- [x] Annotated bibliography ([`data/bibliography.md`](data/bibliography.md); expert interview still to add)
 - [ ] Slides and backup demo video
 - [ ] Final presentation
 
